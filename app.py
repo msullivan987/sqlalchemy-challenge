@@ -91,7 +91,7 @@ def tobs():
     # Query the database
     last_date_string = session.query(Measurement.date).\
         filter(Measurement.station == Station.station).\
-        filter(Station.id == 9).\
+        filter(Station.id == 7).\
         order_by(Measurement.date.desc()).first()[0]
 
     last_date = dt.datetime.strptime(last_date_string,"%Y-%m-%d")
@@ -101,7 +101,7 @@ def tobs():
 
     temp_results = session.query(Measurement.date, Measurement.tobs).\
         filter(Measurement.station == Station.station).\
-        filter(Station.id == 9).\
+        filter(Station.id == 7).\
         filter(Measurement.date > one_year_back)
 
     session.close()
